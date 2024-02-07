@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    // {path: 'admin', loadComponent: () => import('./admin/admin.module').then(adm => adm.AdminModule)},
+    // {path: 'auth', loadComponent: () => import('./auth/auth.module').then(adm => adm.AuthModule)},
+    // {path: '', loadComponent: () => import('./web/web.module').then(web => web.WebModule)},
+];
