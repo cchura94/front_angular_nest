@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent {
   
   // version 17 angular
   private authService= inject(AuthService)
+  private router = inject(Router);
 
   loginForm = new FormGroup({
     email: new FormControl("", [Validators.email, Validators.required]),
@@ -22,9 +24,11 @@ export class LoginComponent {
     this.authService.loginConNest(this.loginForm.value).subscribe(
       (res) => {
         console.log(res)
+        this.router.navigate(["/admin"]);
+
       },
-      (error) => {
-        console.log(error)
+      (error: HttpErrorResponse) => {
+        console.log("ERROR********", error)
       }
     )
       // alert("Ingresando...")
