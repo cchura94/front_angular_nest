@@ -43,6 +43,6 @@ import { CommonModule } from '@angular/common';
         RouterModule,
         AppConfigModule
     ],
-    exports: [AppLayoutComponent]
+    exports: [AppLayoutComponent, RadioButtonModule]
 })
 export class AppLayoutModule { }
