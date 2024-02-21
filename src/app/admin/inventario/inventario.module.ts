@@ -9,6 +9,8 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToolbarModule } from 'primeng/toolbar';
+
 
 
 @NgModule({
@@ -23,8 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonModule,
     DialogModule,
     InputTextModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    ToolbarModule    
     
   ]
 })

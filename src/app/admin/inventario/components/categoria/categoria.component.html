@@ -43,7 +43,10 @@
                 <td>{{ categoria.nombre }}</td>
                 <td>{{ categoria.detalle }}</td>
                 <td>
-                    
+                    <div class="flex">
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editarCategoria(categoria)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCategoria(categoria)"></button>
+                    </div>
                 </td>
             </tr>
         </ng-template>
