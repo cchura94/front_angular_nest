@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 
+import { PrimengModule } from '../primeng/primeng.module';
 
 @NgModule({
   providers: [
@@ -21,7 +22,9 @@ import { AuthService } from './services/auth.service';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PrimengModule
+    
   ]
 })
 export class AuthModule { }

@@ -9,6 +9,7 @@ import { AppLayoutModule } from './layout/app.layout.module';
 import { CategoriaService } from './inventario/services/categoria.service';
 import { InventarioModule } from './inventario/inventario.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductoService } from './inventario/services/producto.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    CategoriaService
+    CategoriaService,
+    ProductoService
   ]
 })
 export class AdminModule { }
