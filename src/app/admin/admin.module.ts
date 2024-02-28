@@ -10,6 +10,8 @@ import { CategoriaService } from './inventario/services/categoria.service';
 import { InventarioModule } from './inventario/inventario.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductoService } from './inventario/services/producto.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { peticionInterceptor } from './interceptors/peticion.interceptor';
 
 
 @NgModule({
@@ -28,6 +30,11 @@ import { ProductoService } from './inventario/services/producto.service';
   providers: [
     CategoriaService,
     ProductoService
+    /*{
+      provide: HTTP_INTERCEPTORS,
+      useClass: peticionInterceptor,
+      multi: true
+    }*/
   ]
 })
 export class AdminModule { }

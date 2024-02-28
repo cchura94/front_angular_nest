@@ -18,28 +18,16 @@ export class ProductoComponent {
     { name: 'ELECTRODOMESTICOS', code: 'PRS' }
 ];
 
-  products: any[] = [
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-    {id: 1, nombre: "Teclado", precio: 399.98, categoria_id: 5, stock: 12, estado: 1},
-  ];
+  products: any[] = [];
   cols: any[] = [];
 
   constructor(){
     this.productoService.funListar().subscribe(
       (res:any) => {
         this.products = res.data
+      },
+      (error: any) => {
+        console.log(error);
       }
     )
   }
