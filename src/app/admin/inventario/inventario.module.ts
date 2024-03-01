@@ -5,7 +5,7 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PrimengModule } from '../../primeng/primeng.module';
 
@@ -20,6 +20,7 @@ import { PrimengModule } from '../../primeng/primeng.module';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     PrimengModule   
   ]
 })

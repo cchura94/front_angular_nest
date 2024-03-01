@@ -1,7 +1,9 @@
 <div class="grid">
     <div class="col-12">
         <div class="card px-6 py-6">
+
             
+
 
             <p-toolbar styleClass="mb-4">
                 <ng-template pTemplate="left">
@@ -12,20 +14,27 @@
                 </ng-template>
 
                 <ng-template pTemplate="right">
-                    <p-dropdown [options]="categorias" optionLabel="name" [showClear]="true" placeholder="Filtrar por Categoria"></p-dropdown>
+                    <p-dropdown [options]="categorias" optionLabel="name" [showClear]="true"
+                        placeholder="Filtrar por Categoria"></p-dropdown>
 
-                    <button pButton pRipple label="Exportar" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>
+                    <button pButton pRipple label="Exportar" icon="pi pi-upload" class="p-button-help"
+                        (click)="dt.exportCSV()"></button>
                 </ng-template>
             </p-toolbar>
 
-            
-            <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos" [rowHover]="true" dataKey="id">
+
+            <p-table #dt [value]="products" [columns]="cols" [lazy]="true" [loading]="loading" [totalRecords]="totalRecords"
+                (onLazyLoad)="loadProductos($event)" responsiveLayout="scroll" [rows]="5" [paginator]="true"
+                [rowsPerPageOptions]="[5,10,20]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos" [rowHover]="true"
+                dataKey="id">
                 <ng-template pTemplate="caption">
                     <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
                         <h5 class="m-0">Administrar Productos</h5>
+                        {{ buscardor }}
                         <span class="block mt-2 md:mt-0 p-input-icon-left">
                             <i class="pi pi-search"></i>
-                            <input pInputText type="text" placeholder="Buscar..."  class="w-full sm:w-auto"/>
+                            <input pInputText type="text" placeholder="Buscar..." class="w-full sm:w-auto" [(ngModel)]="buscardor" (keyup)="buscar($event)" />
                         </span>
                     </div>
                 </ng-template>
@@ -51,7 +60,8 @@
                             {{product.nombre}}
                         </td>
                         <td style="width:14%; min-width:10rem;"><span class="p-column-title">Image</span>
-                            <img src="https://hiraoka.com.pe/media/mageplaza/blog/post/c/o/como_elegir_un_teclado.jpg" [alt]="product.name" width="100" class="shadow-4" />
+                            <img src="https://hiraoka.com.pe/media/mageplaza/blog/post/c/o/como_elegir_un_teclado.jpg"
+                                [alt]="product.name" width="100" class="shadow-4" />
                         </td>
                         <td style="width:14%; min-width:8rem;">
                             <span class="p-column-title">Precio</span>
@@ -66,12 +76,18 @@
                             {{product.stock}}
                         </td>
                         <td style="width:14%; min-width: 3rem;"><span class="p-column-title">Estado</span>
-                            <span >{{product.estado}}</span>
+                            <span>{{product.estado}}</span>
                         </td>
                         <td>
                             <div class="flex">
-                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
-                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+                                <p-button (click)="openDialogImagen(product.id)" icon="pi pi-image"></p-button>
+
+
+                                <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success mr-2"
+                                    (click)="editProduct(product)"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                    (click)="deleteProduct(product)"></button>
                             </div>
                         </td>
                     </tr>
@@ -81,3 +97,15 @@
         </div>
     </div>
 </div>
+
+<p-dialog header="Actualizar Imagen" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <h2>PRODUCTO: {{ producto_id }}</h2>
+    <p-fileUpload name="demo[]" [customUpload]="true" (uploadHandler)="subirImagen($event)" [multiple]="false" accept="image/*" >
+        <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+            </ul>
+        </ng-template>
+    </p-fileUpload>
+    
+</p-dialog>

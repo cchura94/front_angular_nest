@@ -11,7 +11,6 @@ import { InventarioModule } from './inventario/inventario.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductoService } from './inventario/services/producto.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { peticionInterceptor } from './interceptors/peticion.interceptor';
 
 
 @NgModule({
@@ -30,11 +29,6 @@ import { peticionInterceptor } from './interceptors/peticion.interceptor';
   providers: [
     CategoriaService,
     ProductoService
-    /*{
-      provide: HTTP_INTERCEPTORS,
-      useClass: peticionInterceptor,
-      multi: true
-    }*/
   ]
 })
 export class AdminModule { }
