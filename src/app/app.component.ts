@@ -10,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'front_angular_nest';
+  
+  constructor(){
+    console.log("HOLA MUNDO...");
+    
+    localStorage.setItem("TOKEN_TEST", "DATOS_PRUEBA");
+  }
 }

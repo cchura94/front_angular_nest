@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class NuevoPedidoComponent {
 
+  carrito: any[] = [{nombre: 'TECLADO', cantidad: 1, precio: 200}]
+
 }

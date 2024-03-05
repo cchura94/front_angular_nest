@@ -11,6 +11,7 @@ import { InventarioModule } from './inventario/inventario.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductoService } from './inventario/services/producto.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PrimengModule } from '../primeng/primeng.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AdminRoutingModule,
     AppLayoutModule,
     InventarioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // PrimengModule
   ],
   providers: [
     CategoriaService,

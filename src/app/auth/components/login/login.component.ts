@@ -24,6 +24,7 @@ export class LoginComponent {
     this.authService.loginConNest(this.loginForm.value).subscribe(
       (res) => {
         console.log(res)
+        localStorage.setItem("access_token", res.token)
         this.router.navigate(["/admin"]);
 
       },
