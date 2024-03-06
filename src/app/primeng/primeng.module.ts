@@ -10,6 +10,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { EditorModule } from 'primeng/editor';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ImageModule } from 'primeng/image';
 
 
 
@@ -22,7 +23,8 @@ const PrimeNgModules = [
   ToolbarModule,
   // EditorModule,
   DropdownModule,
-  FileUploadModule
+  FileUploadModule,
+  ImageModule
 ]
 
 @NgModule({

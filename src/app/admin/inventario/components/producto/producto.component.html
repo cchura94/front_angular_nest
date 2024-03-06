@@ -24,7 +24,7 @@
 
 
             <p-table #dt [value]="products" [columns]="cols" [lazy]="true" [loading]="loading" [totalRecords]="totalRecords"
-                (onLazyLoad)="loadProductos($event)" responsiveLayout="scroll" [rows]="5" [paginator]="true"
+                (onLazyLoad)="loadProductos($event)" responsiveLayout="scroll" [rows]="10" [paginator]="true"
                 [rowsPerPageOptions]="[5,10,20]" [showCurrentPageReport]="true"
                 currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos" [rowHover]="true"
                 dataKey="id">

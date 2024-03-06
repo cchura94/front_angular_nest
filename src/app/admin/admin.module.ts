@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductoService } from './inventario/services/producto.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PrimengModule } from '../primeng/primeng.module';
+import { PedidoModule } from './pedido/pedido.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PrimengModule } from '../primeng/primeng.module';
     AdminRoutingModule,
     AppLayoutModule,
     InventarioModule,
+    PedidoModule,
     ReactiveFormsModule,
     // PrimengModule
   ],

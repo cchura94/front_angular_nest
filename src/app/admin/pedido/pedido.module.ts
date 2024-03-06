@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListaPedidoComponent } from './components/lista-pedido/lista-pedido.component';
 import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.component';
 import { PrimengModule } from '../../primeng/primeng.module';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { PrimengModule } from '../../primeng/primeng.module';
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    FormsModule
   ]
 })
 export class PedidoModule { }
