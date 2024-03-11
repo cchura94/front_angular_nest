@@ -47,7 +47,7 @@
                         </td>
                         <td style="width:2%; min-width:2rem;">
                             <span class="p-column-title">Categoria</span>
-                            {{product.categoria_id}}
+                            {{product.categoria?.nombre}}
                         </td>
                         <td style="width:1%; min-width:2rem;">
                             <span class="p-column-title">Stock</span>
@@ -85,9 +85,14 @@
                             <tr>
                                 <td>{{ prod.nombre }}</td>
                                 <td>{{ prod.precio }}</td>
-                                <td>{{ prod.cantidad }}</td>
                                 <td>
-                                    <p-button icon="pi pi-times" [rounded]="true" severity="danger" (click)="quitarCarrito(prod)"></p-button>
+                                    <p-button (click)="aumentarCantidad(prod)"  [rounded]="true" severity="info" icon="pi pi-plus"></p-button>
+                                    {{ prod.cantidad }}
+                                    <p-button (click)="reducirCantidad(prod)"  [rounded]="true" severity="warning" icon="pi pi-minus"></p-button>
+
+                                </td>
+                                <td>
+                                    <p-button icon="pi pi-times" [rounded]="false" severity="danger" (click)="quitarCarrito(prod)"></p-button>
                                 </td>
                             </tr>
                         </ng-template>

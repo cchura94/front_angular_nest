@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { AppLayoutComponent } from './layout/app.layout.component';
 import { ProductoComponent } from './inventario/components/producto/producto.component';
 import { NuevoPedidoComponent } from './pedido/components/nuevo-pedido/nuevo-pedido.component';
+import { ListaPedidoComponent } from './pedido/components/lista-pedido/lista-pedido.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: "pedido/nuevo",
         component: NuevoPedidoComponent
+      },
+      {
+        path: "pedido",
+        component: ListaPedidoComponent
       }
     ]
   },

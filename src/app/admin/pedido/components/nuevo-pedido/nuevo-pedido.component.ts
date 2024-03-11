@@ -69,10 +69,23 @@ export class NuevoPedidoComponent {
       producto_id: prod.id,
       nombre: prod.nombre,
       precio: prod.precio,
-      cantidad: 1   
+      cantidad: 1,
+      stock: prod.stock
     } 
 
-    this.carrito.push(item);
+    let sw=0
+    for (let pos = 0; pos < this.carrito.length; pos++) {
+      const element = this.carrito[pos];
+      if(element.producto_id == item.producto_id){
+        this.aumentarCantidad(this.carrito[pos])
+        sw=1;
+      }
+    }
+    
+    if(sw!=1){
+      this.carrito.push(item);
+    }
+
   }
 
   quitarCarrito(prod: any){
@@ -124,4 +137,17 @@ export class NuevoPedidoComponent {
       }
     )
   }
+
+  aumentarCantidad(prod:any){
+    if(prod.cantidad < prod.stock){
+      prod.cantidad++;
+    }
+
+  }
+  reducirCantidad(prod:any){
+    if(prod.cantidad>1){
+      prod.cantidad--;
+    }
+  }
+
 }

@@ -10,7 +10,6 @@ import { peticionInterceptor } from './interceptors/peticion.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
-    provideClientHydration(),
     importProvidersFrom(BrowserModule),
     importProvidersFrom(BrowserAnimationsModule),
               provideHttpClient(
