@@ -7,6 +7,7 @@ import { AppLayoutComponent } from './layout/app.layout.component';
 import { ProductoComponent } from './inventario/components/producto/producto.component';
 import { NuevoPedidoComponent } from './pedido/components/nuevo-pedido/nuevo-pedido.component';
 import { ListaPedidoComponent } from './pedido/components/lista-pedido/lista-pedido.component';
+import { authGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,23 +16,28 @@ const routes: Routes = [
     children: [
       {
         path: "perfil",
-        component: PerfilComponent
+        component: PerfilComponent,
+        canActivate: [authGuard]
       },
       {
         path: "categoria",
-        component: CategoriaComponent
+        component: CategoriaComponent,
+        canActivate: [authGuard]
       },
       {
         path: "producto",
-        component: ProductoComponent
+        component: ProductoComponent,
+        canActivate: [authGuard]
       },
       {
         path: "pedido/nuevo",
-        component: NuevoPedidoComponent
+        component: NuevoPedidoComponent,
+        canActivate: [authGuard]
       },
       {
         path: "pedido",
-        component: ListaPedidoComponent
+        component: ListaPedidoComponent,
+        canActivate: [authGuard]
       }
     ]
   },

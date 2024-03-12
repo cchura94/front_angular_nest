@@ -23,7 +23,7 @@ export class NuevoPedidoComponent {
   products: any[] = [];
   cols: any[] = [];
   uploadedFiles: any[] = [];
-  producto_id: number = -1;
+  productoId: number = -1;
 
   buscar_cliente: any = ""
   cliente: any = {}
@@ -66,7 +66,7 @@ export class NuevoPedidoComponent {
   addcarrito(prod: any) {
 
     let item = {
-      producto_id: prod.id,
+      productoId: prod.id,
       nombre: prod.nombre,
       precio: prod.precio,
       cantidad: 1,
@@ -76,7 +76,7 @@ export class NuevoPedidoComponent {
     let sw=0
     for (let pos = 0; pos < this.carrito.length; pos++) {
       const element = this.carrito[pos];
-      if(element.producto_id == item.producto_id){
+      if(element.productoId == item.productoId){
         this.aumentarCantidad(this.carrito[pos])
         sw=1;
       }
@@ -128,12 +128,14 @@ export class NuevoPedidoComponent {
   generarPedido(){
 
     const pedido = {
-      cliente_id: this.cliente_seleccionado.id,
-      productos: this.carrito
+      cliente: this.cliente_seleccionado.id,
+      pedidoProductos: this.carrito
     }
     this.pedidoService.funGuardar(pedido).subscribe(
       (res: any) => {
         console.log(res)
+        this.carrito= [];
+        this.cliente_seleccionado = {}
       }
     )
   }
